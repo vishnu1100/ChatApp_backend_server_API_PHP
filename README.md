@@ -4,8 +4,8 @@
 The Chat Application is a real-time messaging platform that allows users to register, log in, send messages, and fetch chat history. The API is built using PHP and interacts with a MySQL database for data storage.
 
 ### Live Application URL
-- **Main Application:** [http://chatappp.free.nf/](http://chatappp.free.nf/)
-- **API Endpoint:** [http://chatappp.free.nf/api/](http://chatappp.free.nf/api/)
+- **Main Application:** [http://chatappp.free.nf/](https://chatappp.free.nf/)
+- **API Endpoint:** [http://chatappp.free.nf/api/](https://chatappp.free.nf/api/)
 
 ---
 

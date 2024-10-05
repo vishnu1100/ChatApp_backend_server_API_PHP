@@ -8,7 +8,7 @@ $query = "SELECT users.username, messages.message, messages.timestamp
 
 $result = $conn->query($query);
 while ($row = $result->fetch_assoc()) {
-    echo "<p><strong>{$row['username']}:</strong> {$row['message']} <em>({$row['timestamp']})</em></p>";
+    echo "<p><strong>{$row['username']}:</strong> {$row['message']} <small><em>({$row['timestamp']})</em></small></p>";
 }
 $conn->close();
 ?>

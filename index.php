@@ -16,14 +16,36 @@ if (!isset($_SESSION['user_id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/chatstyle.css"> <!-- Assuming this contains your custom styles -->
+    <link rel="stylesheet" href="./css/chatstyle.css"> <!-- Custom styles -->
     <style>
+        body {
+            background-color: #e9ecef; /* Light background for the whole page */
+        }
+
         #chat-box {
             height: 400px; /* Set the height for the chat area */
             overflow-y: auto; /* Enable vertical scrolling */
-            background-color: #f8f9fa; /* Optional: set a background color for chat area */
-            border-radius: 0.5rem; /* Optional: add rounded corners */
-            padding: 10px; /* Optional: add some padding */
+            background-color: #f8f9fa; /* Chat area background color */
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 10px; /* Padding for the chat area */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
+        }
+
+        .chat-message {
+            margin-bottom: 10px; /* Space between messages */
+            padding: 8px; /* Padding for message bubble */
+            border-radius: 0.5rem; /* Rounded corners for messages */
+            background-color: #007bff; /* Message background color */
+            color: white; /* Text color */
+        }
+
+        .send-button {
+            background-color: #28a745; /* Send button color */
+            color: white; /* Button text color */
+        }
+
+        .send-button:hover {
+            background-color: #218838; /* Darker shade on hover */
         }
     </style>
 </head>
@@ -35,8 +57,8 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="card" id="chat1">
                     <div class="card-header d-flex justify-content-between align-items-center p-3 chat-header">
                         <i class="fas fa-angle-left text-white"></i>
-                        <p class="mb-0 fw-bold text-white" style="color: green !important;">Live Chat</p>
-                        <a href="logout.php" class="btn btn-danger btn-sm">Logout</a> <!-- Logout button -->
+                        <p class="mb-0 fw-bold text-white"  style="color: green !important;">Live Chat</p>
+                        <a href="logout.php" class="btn btn-danger btn-sm">Logout</a>
                     </div>
                     <div class="card-body d-flex flex-column">
                         <div id="chat-box">
@@ -47,7 +69,9 @@ if (!isset($_SESSION['user_id'])) {
                             <textarea class="form-control" id="message" rows="4" placeholder="Type your message"></textarea>
                         </div>
 
-                        <button class="btn send-button mt-3" onclick="sendMessage()">Send <i class="fas fa-paper-plane"></i></button>
+                        <button class="btn send-button mt-3" onclick="sendMessage()">
+                            Send <i class="fas fa-paper-plane"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -79,8 +103,7 @@ if (!isset($_SESSION['user_id'])) {
 
     function appendMessageToChat(message) {
         const chatBox = $('#chat-box');
-        const messageElement = $('<div></div>').text(message); // Customize this (e.g., add sender info)
-        messageElement.addClass('chat-message'); // Optional: add a class for styling
+        const messageElement = $('<div></div>').text(message).addClass('chat-message'); // Add message class for styling
         chatBox.append(messageElement);
         scrollToBottom(); // Scroll to the bottom after appending a new message
     }
@@ -94,7 +117,6 @@ if (!isset($_SESSION['user_id'])) {
     $(document).ready(function() {
         loadMessages(); // Call loadMessages function if implemented
     });
-
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -3,123 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Application</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Chat Application API Documentation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f0f2f5;
+            background-color: #f8f9fa;
         }
-        
-        #chat1 {
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        h1, h2, h3 {
+            color: #343a40;
         }
-
-        .chat-header {
-            background: linear-gradient(135deg, #39c0ed, #0096d6);
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+        pre {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
         }
-
-        .chat-message {
-            border-radius: 15px;
+        .endpoint {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            margin-bottom: 20px;
             padding: 15px;
-            margin-bottom: 15px;
+            border-radius: 5px;
         }
-
-        .message-sent {
-            background-color: rgba(57, 192, 237, .2);
+        .example {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
         }
-
-        .message-received {
-            background-color: #e0e0e0;
-        }
-
-        .avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-        }
-
-        .form-control {
-            border: 2px solid #39c0ed;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: #0096d6;
-            box-shadow: 0 0 5px rgba(57, 192, 237, .5);
-        }
-
-        .send-button {
-            background-color: #39c0ed;
+        .footer {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #343a40;
             color: white;
+            text-align: center;
         }
-
-        .send-button:hover {
-            background-color: #0096d6;
+        a {
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <section>
-        <div class="container py-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-8 col-lg-6 col-xl-4">
-                    <div class="card" id="chat1">
-                        <div class="card-header d-flex justify-content-between align-items-center p-3 chat-header">
-                            <i class="fas fa-angle-left text-white"></i>
-                            <p class="mb-0 fw-bold text-white">Live Chat</p>
-                            <i class="fas fa-times text-white"></i>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex flex-row justify-content-start mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="avatar 1" class="avatar">
-                                <div class="chat-message p-3 ms-3 message-received">
-                                    <p class="small mb-0">Hello and thank you for visiting MDBootstrap. Please click the video below.</p>
-                                </div>
-                            </div>
 
-                            <div class="d-flex flex-row justify-content-end mb-4">
-                                <div class="chat-message p-3 me-3 message-sent">
-                                    <p class="small mb-0">Thank you, I really like your product.</p>
-                                </div>
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp" alt="avatar 2" class="avatar">
-                            </div>
+    <div class="container my-4">
+        <h1 class="text-center">Chat Application API Documentation</h1>
+        <hr>
 
-                            <div class="d-flex flex-row justify-content-start mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="avatar 1" class="avatar">
-                                <div class="ms-3">
-                                    <div class="bg-image">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/screenshot1.webp" class="rounded" alt="video" style="border-radius: 15px;">
-                                        <a href="#!">
-                                            <div class="mask"></div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+        <h2>Overview</h2>
+        <p>The Chat Application is a real-time messaging platform that allows users to register, log in, send messages, and fetch chat history. The API is built using PHP and interacts with a MySQL database for data storage.</p>
 
-                            <div class="d-flex flex-row justify-content-start mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="avatar 1" class="avatar">
-                                <div class="chat-message p-3 ms-3 message-received">
-                                    <p class="small mb-0">...</p>
-                                </div>
-                            </div>
+        <h3>Live Application URL</h3>
+        <ul>
+            <li><strong>Main Application:</strong> <a href="https://chatappp.free.nf/">https://chatappp.free.nf/</a></li>
+            <li><strong>API Endpoint:</strong> <a href="https://chatappp.free.nf/api/">https://chatappp.free.nf/api/</a></li>
+        </ul>
 
-                            <div class="form-outline">
-                                <textarea class="form-control" id="textAreaExample" rows="4" placeholder="Type your message"></textarea>
-                            </div>
+        <hr>
 
-                            <button type="button" class="btn send-button mt-3">Send <i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h2>API Endpoints</h2>
+
+        <div class="endpoint">
+            <h3>1. User Registration</h3>
+            <p><strong>Endpoint:</strong> <code>/api/register.php</code></p>
+            <p><strong>Method:</strong> <code>POST</code></p>
+            <p><strong>Request Body:</strong></p>
+            <pre><code>{
+    "username": "your_username",
+    "password": "your_password"
+}</code></pre>
+            <p><strong>Response:</strong></p>
+            <p><strong>Success:</strong></p>
+            <pre><code>{
+    "status": "success",
+    "message": "User registered successfully."
+}</code></pre>
+            <p><strong>Error:</strong></p>
+            <pre><code>{
+    "status": "error",
+    "message": "Error message detailing what went wrong."
+}</code></pre>
         </div>
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="endpoint">
+            <h3>2. User Login</h3>
+            <p><strong>Endpoint:</strong> <code>/api/login.php</code></p>
+            <p><strong>Method:</strong> <code>POST</code></p>
+            <p><strong>Request Body:</strong></p>
+            <pre><code>{
+    "username": "your_username",
+    "password": "your_password"
+}</code></pre>
+            <p><strong>Response:</strong></p>
+            <p><strong>Success:</strong></p>
+            <pre><code>{
+    "status": "success",
+    "message": "Login successful."
+}</code></pre>
+            <p><strong>Error:</strong></p>
+            <pre><code>{
+    "status": "error",
+    "message": "Invalid username or password."
+}</code></pre>
+        </div>
+
+        <div class="endpoint">
+            <h3>3. Send Message</h3>
+            <p><strong>Endpoint:</strong> <code>/api/send_message.php</code></p>
+            <p><strong>Method:</strong> <code>POST</code></p>
+            <p><strong>Request Body:</strong></p>
+            <pre><code>{
+    "message": "Your message here"
+}</code></pre>
+            <p><strong>Response:</strong></p>
+            <p><strong>Success:</strong></p>
+            <pre><code>{
+    "status": "success",
+    "message": "Message sent successfully."
+}</code></pre>
+            <p><strong>Error:</strong></p>
+            <pre><code>{
+    "status": "error",
+    "message": "Error message detailing what went wrong."
+}</code></pre>
+        </div>
+
+        <div class="endpoint">
+            <h3>4. Get Messages</h3>
+            <p><strong>Endpoint:</strong> <code>/api/get_messages.php</code></p>
+            <p><strong>Method:</strong> <code>GET</code></p>
+            <p><strong>Response:</strong></p>
+            <pre><code>[
+    {
+        "username": "user1",
+        "message": "Hello, world!",
+        "timestamp": "2024-10-01 12:00:00"
+    },
+    {
+        "username": "user2",
+        "message": "Hi there!",
+        "timestamp": "2024-10-01 12:01:00"
+    }
+]</code></pre>
+        </div>
+
+        <hr>
+
+        <h2>Usage Examples</h2>
+
+        <div class="example">
+            <h3>Register a User</h3>
+            <pre><code>
+fetch('http://chatappp.free.nf/api/register.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username: 'newuser', password: 'password123' })
+})
+.then(response => response.json())
+.then(data => console.log(data));
+            </code></pre>
+        </div>
+
+        <div class="example">
+            <h3>Login a User</h3>
+            <pre><code>
+fetch('http://chatappp.free.nf/api/login.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username: 'newuser', password: 'password123' })
+})
+.then(response => response.json())
+.then(data => console.log(data));
+            </code></pre>
+        </div>
+
+        <div class="example">
+            <h3>Send a Message</h3>
+            <pre><code>
+fetch('http://chatappp.free.nf/api/send_message.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message: 'Hello, world!' })
+})
+.then(response => response.json())
+.then(data => console.log(data));
+            </code></pre>
+        </div>
+
+        <div class="example">
+            <h3>Get Messages</h3>
+            <pre><code>
+fetch('http://chatappp.free.nf/api/get_messages.php')
+.then(response => response.json())
+.then(data => console.log(data));
+            </code></pre>
+        </div>
+
+        <hr>
+
+        <h2>Security Considerations</h2>
+        <ul>
+            <li>Ensure users' passwords are hashed and stored securely.</li>
+            <li>Use HTTPS to encrypt data transmitted over the network.</li>
+            <li>Validate and sanitize all inputs to prevent SQL injection and XSS attacks.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>Implement token-based authentication for improved security.</li>
+            <li>Allow private messaging between users.</li>
+            <li>Implement real-time notifications for new messages.</li>
+        </ul>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Chat Application. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
